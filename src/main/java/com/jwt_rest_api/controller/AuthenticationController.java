@@ -4,9 +4,8 @@ import com.jwt_rest_api.model.AuthenticationResponse;
 import com.jwt_rest_api.model.User;
 import com.jwt_rest_api.service.AuthenticationService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 
 @RestController
 public class AuthenticationController {
@@ -20,10 +19,12 @@ public class AuthenticationController {
         return ResponseEntity.ok(authService.register(request));
     }
 
+    //ResponseEntity<AuthenticationResponse>
     @PostMapping("/login")
     public ResponseEntity<AuthenticationResponse> login(@RequestBody User request){
         return ResponseEntity.ok(authService.authenticate(request));
     }
+
 
 
 }
